@@ -11,7 +11,7 @@ To create a csv with your grades copy your grades from PV to an excel an export 
 The format of your csv should be identical to the one uploaded. Notice you must manually include 3 rows containing seven "SEGUNDO", seven "TERCERO", and seven "CUARTO" preceding each course respectively.
 
 
-#Using a pdf
+# Using a pdf
 
 Export the last situation pdf from PV, rename it as 'a.pdf' and run:
 
