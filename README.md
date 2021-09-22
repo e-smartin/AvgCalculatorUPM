@@ -15,4 +15,5 @@ The format of your csv should be identical to the one uploaded. Notice you must 
 
 Export the last situation pdf from PV, rename it as 'a.pdf' and run:
 
+### `pip install PyPDF2`
 ### `python meansPDF.py` 
