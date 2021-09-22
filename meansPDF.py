@@ -1,11 +1,8 @@
-from subprocess import call
 import re
 import PyPDF2 as pdf
 
 def main ():
-    #decrypt pdf to avoide errors
-    call('qpdf --password='' --decrypt a.pdf decrypteda.pdf', shell =True)
-    pdfFile = open('decrypteda.pdf', 'rb')
+    pdfFile = open('a.pdf', 'rb')
     pdfR = pdf.PdfFileReader(pdfFile)
     ts =[]
 
@@ -20,11 +17,10 @@ def main ():
         s = re.sub("ReconocimientoCred","ReconocimientoCred)",s)
         s = s.split(")")
         for line in s:
-            if "NOTA" in line or "Reconocimiento Cred" in line or "Apto" in line:
+            if "NOTA" in line or "ReconocimientoCred" in line or "Apto" in line:
                 s.remove(line)
 
         s = "\n".join(s)
-        s = re.sub("\("," ",s)
         s = re.sub(",",".",s)
         s = re.findall("\d{1}\.{1}\d{1}|10|\d{1}", s)
         ts+=s
@@ -40,7 +36,6 @@ def main ():
     for i in range(len(ects)):
         print(str(i+1)+"º: "+ '%.2f' % (tot[i]/ects[i]))
 
-    call('rm decrypteda.pdf', shell =True)
 
 if __name__ == "__main__":
     main()
