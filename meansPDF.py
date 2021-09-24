@@ -24,7 +24,7 @@ def main ():
         #join the string without the lines deleted
         s = "\n".join(m)
         s = re.sub(",",".",s)
-        s = re.findall("\d{1}\.{1}\d{1}|10|12|\d{1}", s)
+        s = re.findall("\d{1}\.{1}\d{1}|\d{2}|\d{1}", s)
         ts+=s
 
     #convert to float 
